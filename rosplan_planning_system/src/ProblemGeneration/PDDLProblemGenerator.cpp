@@ -200,6 +200,9 @@ namespace KCL_rosplan {
 			
 		ros::NodeHandle nh;
 		ros::ServiceClient getCurrentGoalsClient = nh.serviceClient<rosplan_knowledge_msgs::GetAttributeService>(state_goal_service);
+		
+		ROS_INFO("Parsing the goal");
+
 
 		pFile << "(:goal (and" << std::endl;
 
