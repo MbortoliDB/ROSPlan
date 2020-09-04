@@ -44,6 +44,8 @@ find_package(FLEX REQUIRED)
 # Disable deprecated declarations warning (about std::auto_ptr)
 add_definitions(-Wno-deprecated-declarations)
 
+
+
 ## Declare cpp executables
 add_executable(problemInterface src/ProblemGeneration/ProblemInterface.cpp src/ProblemGeneration/PDDLProblemGenerator.cpp
                                                                            src/ProblemGeneration/ProblemGenerator.cpp
@@ -106,6 +108,12 @@ target_link_libraries(pddl_simple_plan_dispatcher ${catkin_LIBRARIES})
 target_link_libraries(pddl_esterel_plan_dispatcher ${catkin_LIBRARIES})
 target_link_libraries(online_plan_dispatcher ${catkin_LIBRARIES})
 target_link_libraries(simulatedAction ${catkin_LIBRARIES})
+
+
+## Declare action interface for Tutorial 10
+add_executable(tutorialInterface src/ActionInterface/RPTgraphActionInterface.cpp src/ActionInterface/RPActionInterface.cpp)
+add_dependencies(tutorialInterface ${catkin_EXPORTED_TARGETS})
+target_link_libraries(tutorialInterface ${catkin_LIBRARIES})
 
 ## Declare libraries
 # rosplan_planning_system does not dispatch VALfiles as a library anymore.
